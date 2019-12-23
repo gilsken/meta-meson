@@ -1,0 +1,9 @@
+[Unit]
+Description=Delay the start of vad at start-up
+
+[Timer]
+OnBootSec=12s
+
+[Install]
+WantedBy=timers.target
+

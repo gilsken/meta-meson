@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# This is a workaround to prevent platform reboots when the wifi module is
+# loaded too early in the boot. In order to avoid the SoC reset, we blacklist
+# the wifi module for it to not be loaded when 'modprobe -a' is run, and we
+# only load it when we are bringing up network interfaces.
+if [ "$IFACE" = "wlan0" ]; then
+	modprobe brcmfmac43455-sdio
+fi
